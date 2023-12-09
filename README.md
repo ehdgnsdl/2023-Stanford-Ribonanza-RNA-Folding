@@ -1,5 +1,5 @@
 # 2023-Stanford-Ribonanza-RNA-Folding
-This repository contains my code for Ayaan's part in the 5th place solution of [the Stanford Ribonanza RNA Folding competition 2023](https://www.kaggle.com/competitions/stanford-ribonanza-rna-folding/overview). All training was conducted on two GeForce RTX 4090 GPUs. The 5-fold ensemble alone achieved a leaderboard score of 0.13963 public and 0.14258 private.
+This repository contains my code for <b>Ayaan's part in the 5th place solution</b> of [the Stanford Ribonanza RNA Folding competition 2023](https://www.kaggle.com/competitions/stanford-ribonanza-rna-folding/overview). All training was conducted on two GeForce RTX 4090 GPUs. The 5-fold ensemble alone achieved a leaderboard score of 0.13963 public and 0.14258 private.
 
 You can check out our team's solution [here](https://www.kaggle.com/competitions/stanford-ribonanza-rna-folding/discussion/460250).
 
@@ -19,6 +19,7 @@ You can check out our team's solution [here](https://www.kaggle.com/competitions
 ├── eda.ipynb
 └── infer-list.ipynb
 ```
+
 
 # Setup
 First, clone this repository:
