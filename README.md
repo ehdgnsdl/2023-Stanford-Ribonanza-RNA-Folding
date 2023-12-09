@@ -34,9 +34,9 @@ conda activate stanford_rna
 ```
 
 # Data Preparation
-1. You can utilize the `eda.ipynb` file. (Refine the `training dataset` for use in the model.) <br>
-
 The competition dataset can be downloaded [here](https://www.kaggle.com/competitions/stanford-ribonanza-rna-folding/data).
+
+1. You can utilize the `eda.ipynb` file. (Refine the `training dataset` for use in the model.) <br>
 
 2. You save the Refined datasets in the `/data` folder. (train, test, pseudo dataset)
 
