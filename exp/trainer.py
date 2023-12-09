@@ -47,13 +47,11 @@ if __name__ == "__main__":
         "n_epochs": 200,
         # "lr": 2e-3, # origin 2e-3 (first)        
         # "lr": 2e-4, # origin 2e-3, using pseudo (bs 100):2e-4
-        "lr": 2e-5, # origin 2e-3, pseudo: 2e-4, pseudo 후에: 2e-5 (는 2 epoch에서 val 튐) (third)
+        "lr": 2e-5, # origin (1-stage) 2e-3, pseudo (2-stage): 2e-4, after pseudo (3-stage): 2e-5 
                 
         "lr_warmup": 0.015, # origin 0.015        
         "wt_decay": 0.05, # origin 1e-1
-        "grad_clip": 5,
-        # bs 설정팁: 만약, single bs 500이라면, multi-gpu가 2개라면, 500 / 2 = 250으로 설정해야함.
-                
+        "grad_clip": 5,                        
         "batch_size": 250, # origin 250 (2 gpu: 250 * 2 = 500), pseudo: 100            
         "n_grad_accum": 1, # origin 1, pseudo: 2
         
@@ -96,8 +94,8 @@ if __name__ == "__main__":
     df_infer = "../data/test_sequences_processed_ALL.parquet"
     df_pseudo = "../data/submission_for_pseudo_v4_095.parquet" # LB 0.13885
     
-    # # 모델 체크포인트 경로들을 리스트로 지정합니다.
-    # ckpt_paths  = [ # by_roger_v2 models (train -> train + pseudo -> ...
+    # # Specifies a list of model checkpoint paths.
+    # ckpt_paths  = [ 
     #     "pretraining_models/fold0/epoch=35-step=18612.ckpt",
     #     "pretraining_models/fold1/epoch=24-step=12950.ckpt",
     #     "pretraining_models/fold2/epoch=38-step=20163.ckpt",
@@ -105,7 +103,7 @@ if __name__ == "__main__":
     #     "pretraining_models/fold4/epoch=32-step=17094.ckpt",
     # ]
     
-    ckpt_paths  = [ # by_roger_v2 models (pseudo pretraining models)
+    ckpt_paths  = [ # pseudo pretraining models
         "pretraining_pseudo_models_v2/version_20/epoch=32-step=58872.ckpt",
         "pretraining_pseudo_models_v2/version_21/epoch=34-step=62440.ckpt",
         "pretraining_pseudo_models_v2/version_22/epoch=19-step=35680.ckpt",
