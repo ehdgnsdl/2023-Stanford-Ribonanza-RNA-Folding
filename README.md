@@ -52,4 +52,4 @@ You can utilize the `infer-list.ipynb` file.
 
 
 # Reference
-I developed this based on [@sroger's code](https://github.com/s-rog/StanfordRibonanza2023), which I competed with.
+I developed this based on [@sroger's code](https://github.com/s-rog/StanfordRibonanza2023).
