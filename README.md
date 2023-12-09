@@ -4,7 +4,7 @@ This repository contains my code for <b>Ayaan's part in the 5th place solution</
 You can check out our team's solution [here](https://www.kaggle.com/competitions/stanford-ribonanza-rna-folding/discussion/460250).
 
 # Summary
-* <b>Model:</b> Transforemr + 1D Conv Residual BPP attention + GRU
+* <b>Model:</b> Transformer + 1D Conv Residual BPP attention + GRU
 
 
 # File Description
