@@ -94,7 +94,7 @@ if __name__ == "__main__":
     ]
     df_train = "../data/train_data_processed_ALL.parquet"
     df_infer = "../data/test_sequences_processed_ALL.parquet"
-    df_pseudo = "../data/submission_for_pseudo_v5_LB013884.parquet" # LB 0.13885
+    df_pseudo = "../data/submission_for_pseudo_v4_095.parquet" # LB 0.13885
     
     # # 모델 체크포인트 경로들을 리스트로 지정합니다.
     # ckpt_paths  = [ # by_roger_v2 models (train -> train + pseudo -> ...
