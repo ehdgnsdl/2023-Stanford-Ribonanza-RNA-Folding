@@ -4,7 +4,7 @@ This repository contains my code for <b>Ayaan's part in the 5th place solution</
 You can check out our team's solution [here](https://www.kaggle.com/competitions/stanford-ribonanza-rna-folding/discussion/460250).
 
 # Summary
-![image](https://github.com/ehdgnsdl/2023-Stanford-Ribonanza-RNA-Folding/assets/87434001/92d68ec6-dff0-4c2b-8b59-89199f61759b)
+![Ayaan's_model_architecture](https://github.com/ehdgnsdl/2023-Stanford-Ribonanza-RNA-Folding/assets/87434001/a36c40e9-ebd9-4540-82f0-d7938f60f6e7)
 * <b>Model:</b> Transformer + 1D Conv Residual BPP attention + GRU
 
 
