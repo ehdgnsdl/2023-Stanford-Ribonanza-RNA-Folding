@@ -259,5 +259,3 @@ def get_layer_norm(cls: nn.Module, norm_lax: bool) -> nn.Module:
             return super().forward(self.lax(x))
 
     return LayerNorm
-
-#         return output_tensor
