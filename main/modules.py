@@ -62,33 +62,15 @@ class RNA_Model(nn.Module):
         self.res = kwargs["norm_layout"] == "dual"
         self.emb_grad = emb_grad_frac
         
-        self.linear0 = nn.Linear(d_model + 2, 1)    
-        self.proj_x = nn.Sequential(nn.Dropout(p_dropout), nn.Linear(d_model+3, d_model))
-        
-
-            
 
     def forward(self, x0: Tensor) -> Tensor:
         seq = x0['seq']
         mask = x0['mask']
         bpps = x0['As'] 
-        eterna_free_energy = x0['eterna_free_energy']
-        contra_free_energy = x0['contra_free_energy'] 
-                    
+                
         x = self.emb(seq)        
         b = bpps[:, :, :, 0]
 
-        # Reshape eterna_free_energy to match the dimensions of x        
-        eterna_free_energy = eterna_free_energy.unsqueeze(1).expand(-1, x.size(1), -1)
-        contra_free_energy = contra_free_energy.unsqueeze(1).expand(-1, x.size(1), -1)
-    
-        # Concatenate x and the reshaped eterna_free_energy along the last dimension
-        x = torch.cat([x, eterna_free_energy, contra_free_energy], dim=-1)
-        learned = self.linear0(x)        
-        x = torch.cat([x, learned], dim=-1)        
-        x = self.proj_x(x)
-                
-        ###################### dual ################################
         if self.mem != None:
             mask = F.pad(mask, (self.mem.size(1), 0))
             x = torch.cat([self.mem.expand(x.size(0), -1, -1), x], 1)
@@ -97,14 +79,10 @@ class RNA_Model(nn.Module):
         res = x * self.layers[0].res_scale if self.res else None
         for f in self.layers:
             if self.res:                
-                x, res = f(x, b, res, mask, self.rope, self.pos_bias)
-                # x, res = f(x, b, res, mask, self.rope, self.pos_bias)
+                x, res = f(x, b, res, mask, self.rope, self.pos_bias)                
             else:
-                x = f(x, mask, self.rope, self.pos_bias)
-                # x = f(x, b, mask, self.rope, self.pos_bias)
+                x = f(x, mask, self.rope, self.pos_bias)            
         x = x[:, self.mem.size(1) :] if self.mem != None else x
-        # print(torch.isnan(x).all())
-        ##############################################################
             
         return self.out(x)
 
@@ -175,11 +153,9 @@ class EncoderLayer(nn.Module):
         x = x.permute([0, 2, 1])  # [batch, d-emb, seq]
         x = self.attn3(x, b)
         x = x.permute([0, 2, 1])  # [batch, d-emb, seq]                
-        
-            
+                    
         x, _ = self.gru(x) # by junseong
-        
-        
+                
         return x, res
 
 class ResidualBPPAttention(nn.Module):
@@ -284,15 +260,4 @@ def get_layer_norm(cls: nn.Module, norm_lax: bool) -> nn.Module:
 
     return LayerNorm
 
-def get_bpp_feature(bpp):
-    bpp_nb_mean = 0.10559  # mean of bpps_nb across all training data
-    bpp_nb_std = 0.096033  # std of bpps_nb across all training data
-    bpp_max = bpp.max(-1)[0]
-    bpp_sum = bpp.sum(-1)
-    bpp_nb = torch.true_divide((bpp > 0).sum(dim=1), bpp.shape[1])
-    bpp_nb = torch.true_divide(bpp_nb - bpp_nb_mean, bpp_nb_std)
-    return [bpp_max.unsqueeze(2), bpp_sum.unsqueeze(2), bpp_nb.unsqueeze(2)]
-
-
-
-
+#         return output_tensor
