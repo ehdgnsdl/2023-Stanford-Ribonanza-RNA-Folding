@@ -13,7 +13,7 @@ You can check out our team's solution [here](https://www.kaggle.com/competitions
 ├── data
 │   ├── train_data_processed_ALL.parquet (train dataset)
 │   ├── test_sequences_processed_ALL.parquet (test dataset)
-│   └── submission_for_pseudo_v4_095.parquet (pseudo dataset)
+│   └── submission_for_pseudo_v2.parquet (pseudo dataset)
 ├── exp
 │   └── trainer.py
 ├── main
