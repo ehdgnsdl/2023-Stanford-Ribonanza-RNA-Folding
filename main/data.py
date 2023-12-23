@@ -215,12 +215,12 @@ class RNA_DS(torch.utils.data.Dataset):
         seq_id = r.sequence_id if self.infer else r.seq_id
         if self.infer:
             As_eterna = np.load(f'../bpps/{seq_id}.npy') # eterna bpp
-            As_contra = np.load(f'../bpps_contrafold/{seq_id}.npy') # eterna bpp
+            # As_contra = np.load(f'../bpps_contrafold/{seq_id}.npy') # eterna bpp
             # As_rfold = np.load(f'../bpp_rfold/{seq_id}.npy')[0] # contra bpp
         
         else:
             As_eterna = np.load(f'../../bpps/{seq_id}.npy')
-            As_contra = np.load(f'../../bpps_contrafold/{seq_id}.npy')
+            # As_contra = np.load(f'../../bpps_contrafold/{seq_id}.npy')
             # As_rfold = np.load(f'../../bpp_rfold/{seq_id}.npy')[0]            
 
         # As = np.load(f'../../bpps/{seq_id}.npy') # As: (177, 177)
