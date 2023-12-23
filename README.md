@@ -21,16 +21,23 @@ You can check out our team's solution [here](https://www.kaggle.com/competitions
 │   ├── data.py
 │   ├── modules.py
 │   └── utils.py
+├── ../bpps
+│   ├── eee73c1836bc.npy
+│   ├── 00257e85caac.py
+│   └── {seq_id}.npy
 ├── eda.ipynb
 └── infer-list.ipynb
 ```
 
-#### HARDWARE: 
+* "../bpps" folder: saved as {seq_id}.npy, in the form of an n x n matrix 
+
+
+### HARDWARE: 
 Ubuntu 22.04 LTS <br>
 128 GB memory <br>
 2 x NVIDIA GeForce RTX 4090  <br>
 
-#### SOFTWARE (python packages are detailed separately in `requirements.txt`):
+### SOFTWARE (python packages are detailed separately in `requirements.txt`):
 Python 3.11.6 <br>
 CUDA 12.1 <br>
 cuddn 8.9.2.26 <br>
