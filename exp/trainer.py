@@ -92,7 +92,7 @@ if __name__ == "__main__":
     ]
     df_train = "../data/train_data_processed_ALL.parquet"
     df_infer = "../data/test_sequences_processed_ALL.parquet"
-    df_pseudo = "../data/submission_for_pseudo_v4_095.parquet" # LB 0.13885
+    df_pseudo = "../data/submission_for_pseudo_v2.parquet" # LB 0.13885
     
     # # Specifies a list of model checkpoint paths.
     # ckpt_paths  = [ 
