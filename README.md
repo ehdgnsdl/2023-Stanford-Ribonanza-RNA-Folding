@@ -62,15 +62,20 @@ The competition dataset can be downloaded [here](https://www.kaggle.com/competit
 
 2. You save the Refined datasets in the `/data` folder. (train, test, pseudo dataset)
 
+* You need to save `Ribonanza_bpp_files` in an n x n matrix in the folder `../bpps` in the format {seq_id}.npy.
+
 
 # Training
 ```
 cd exp
 python trainer.py
 ```
+* save your model to `exp/e32`
 
 # Inference
-You can utilize the `infer-list.ipynb` file.
+* You can utilize the `infer-list.ipynb` file.
+* save your predictions to `sub` folder
+
 
 
 # Reference
