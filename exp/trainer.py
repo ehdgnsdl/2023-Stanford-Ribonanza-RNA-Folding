@@ -27,7 +27,7 @@ if __name__ == "__main__":
     seed = 420    
     
     # early_stop = 3 # origin 10, pseudo 3
-    early_stop = 7 # origin 10, pseudo 3    
+    early_stop = 10 # origin 10, pseudo 3    
     n_trials = 0    
     n_folds = 5
     
@@ -35,7 +35,7 @@ if __name__ == "__main__":
     # run_folds = [0, 1, 2, 3, 4]
     run_folds = [0, 1, 2, 3, 4]
         
-    log_dir = "e34"
+    log_dir = "e32"
     pred_dir = "subs"
     metric = "loss/V"
 
